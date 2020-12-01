@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/milligram.css">
+    <!--
+    <style>
+      body { text-align: center; 
+        padding: 20px; 
+        background: rgb(255,245,225);
+        background: -moz-linear-gradient(90deg, rgba(255,245,225,1) 35%, rgba(255,255,255,1) 100%);
+        background: -webkit-linear-gradient(90deg, rgba(255,245,225,1) 35%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(90deg, rgba(255,245,225,1) 35%, rgba(255,255,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff5e1",endColorstr="#ffffff",GradientType=1);   
+      }
+      @media (min-width: 768px){
+        body{ padding-top: 70px; }
+      }
+      h1 { font-size: 50px; }
+      body { font: 20px Helvetica, sans-serif; color: #333; }
+      article { display: block; text-align: left; max-width: 650px; margin: 0 auto; }
+      a { color: #dc8100; text-decoration: none; }
+      a:hover { color: #333; text-decoration: none; }
+      hr {
+        border: 0;
+        height: 2px;
+        background-image: -webkit-linear-gradient(left, transparent, rgb(29, 29, 29), transparent);
+        background-image: -moz-linear-gradient(left, transparent, rgb(29, 29, 29), transparent);
+        background-image: -ms-linear-gradient(left, transparent, rgb(29, 29, 29), transparent);
+        background-image: -o-linear-gradient(left, transparent, rgb(29, 29, 29), transparent); 
+      }
+    </style>
+    -->
+  <style>
+    .navbar {
+      margin-bottom: 10px;
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #606c76;
+    }
+
+    .navbar li {
+        float: left;
+        margin-bottom: 0;
+    }
+
+    .navbar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navbar li a.active {
+        background-color: #ab5dda;
+        font-weight: bold;
+    }
+
+    .navbar li a:hover {
+        background-color: #ab5dda;
+    }
+  </style>
+  </head>
+  <body>
+    <div class='navbar'>
+      <ul>
+        <li><a class="active" href="/index">ROBESPIERRE</a></li>
+        <li><a href="/tnt">TNT Village</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+    <br><br><br>
+    <!--<div><a href="/index">Home</a> | <a href="/tnt">TNT Village</a> | <a href="/biblio">Biblioteca di Alessandria</a> | <a href="/tivu">Tivù</a> | <a href="/about">About</a></div>
+    <hr>-->
+    <center><h1>{{ title }}</h1></center>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div style="margin-left: 5%; margin-right: 5%;"
+    {% block content %}{% endblock %}
+  </body>
+</html>

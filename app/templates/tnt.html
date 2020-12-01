@@ -1,0 +1,97 @@
+<!-- extend base layout -->
+{% extends "index.html" %}
+
+{% block content %}
+	<br>
+
+	<center>
+	<form action="/tnt/search" id="textform" method="GET">
+		<input type="text" name="s" size="50" placeholder="Inserisci il termine da cercare">
+		<select class="form-control" name="category">
+			<option value="all">Tutte le categorie</option>
+			<option value="1">Programmi Televisivi</option>
+			<option value="2">Musica</option>
+			<option value="3">E-Book</option>
+			<option value="4">Film</option>
+			<option value="6">Linux</option>
+			<option value="7">Anime</option>
+			<option value="8">Cartoni Animati</option>
+			<option value="9">macOS</option>
+			<option value="10">Windows</option>
+			<option value="11">PC</option>
+			<option value="12">Playstation</option>
+			<option value="13">Office</option>
+			<option value="14">Documentario</option>
+			<option value="21">Video Musicali</option>
+			<option value="22">Sport</option>
+			<option value="23">Teatro</option>
+			<option value="24">Wrestling</option>
+			<option value="25">Altro</option>
+			<option value="26">Xbox</option>
+			<option value="27">Immagini</option>
+			<option value="28">Altri Giochi</option>
+			<option value="29">Serie TV</option>
+			<option value="30">Fumetteria</option>
+			<option value="31">Trash</option>
+			<option value="32">Nintendo</option>
+			<option value="34">Audiolibri</option>
+			<option value="35">Podcast</option>
+			<option value="36">Edicola</option>
+			<option value="37">Mobile</option>
+			<option value="38">Free Culture</option>
+		  </select>
+	    <input type="submit" value="Cerca!">
+	</form>
+	
+	<img src= {{ url_for('static', filename = 'logo.gif') }}>
+	<br>
+	</center>
+
+    <div style="margin-left: 20px;">
+        {% if data %}
+           <center> {{ data | safe}}</center>
+		{% else %}
+		<center>
+			<h2>Categorie</h2>
+			<hr>
+			<a href="tnt/search?category=1"><img src= {{ url_for('static', filename = 'icon1.gif') }}></a> 
+			<a href="tnt/search?category=2"><img src= {{ url_for('static', filename = 'icon2.gif') }}></a> 
+			<a href="tnt/search?category=3"><img src= {{ url_for('static', filename = 'icon3.gif') }}></a> 
+			<a href="tnt/search?category=4"><img src= {{ url_for('static', filename = 'icon4.gif') }}></a> 
+			<a href="tnt/search?category=6"><img src= {{ url_for('static', filename = 'icon6.gif') }}></a>
+			<a href="tnt/search?category=7"><img src= {{ url_for('static', filename = 'icon7.gif') }}></a> 
+			<a href="tnt/search?category=8"><img src= {{ url_for('static', filename = 'icon8.gif') }}></a>
+			<a href="tnt/search?category=9"><img src= {{ url_for('static', filename = 'icon9.gif') }}></a> 
+			<a href="tnt/search?category=10"><img src= {{ url_for('static', filename = 'icon10.gif') }}></a>  
+			<a href="tnt/search?category=11"><img src= {{ url_for('static', filename = 'icon11.gif') }}></a>
+			<br>
+			<a href="tnt/search?category=12"><img src= {{ url_for('static', filename = 'icon12.gif') }}></a>
+			<a href="tnt/search?category=13"><img src= {{ url_for('static', filename = 'icon13.gif') }}></a>
+			<a href="tnt/search?category=14"><img src= {{ url_for('static', filename = 'icon14.gif') }}></a>
+			<a href="tnt/search?category=21"><img src= {{ url_for('static', filename = 'icon21.gif') }}></a>
+			<a href="tnt/search?category=22"><img src= {{ url_for('static', filename = 'icon22.gif') }}></a>
+			<a href="tnt/search?category=23"><img src= {{ url_for('static', filename = 'icon23.gif') }}></a>
+			<a href="tnt/search?category=24"><img src= {{ url_for('static', filename = 'icon24.gif') }}></a>
+			<a href="tnt/search?category=25"><img src= {{ url_for('static', filename = 'icon25.gif') }}></a>
+			<a href="tnt/search?category=26"><img src= {{ url_for('static', filename = 'icon26.gif') }}></a>
+			<a href="tnt/search?category=27"><img src= {{ url_for('static', filename = 'icon27.gif') }}></a>
+			<br>
+			<a href="tnt/search?category=28"><img src= {{ url_for('static', filename = 'icon28.gif') }}></a>
+			<a href="tnt/search?category=29"><img src= {{ url_for('static', filename = 'icon29.gif') }}></a>
+			<a href="tnt/search?category=30"><img src= {{ url_for('static', filename = 'icon30.gif') }}></a>
+			<a href="tnt/search?category=31"><img src= {{ url_for('static', filename = 'icon31.gif') }}></a>
+			<a href="tnt/search?category=32"><img src= {{ url_for('static', filename = 'icon32.gif') }}></a>
+			<a href="tnt/search?category=34"><img src= {{ url_for('static', filename = 'icon34.gif') }}></a>
+			<a href="tnt/search?category=35"><img src= {{ url_for('static', filename = 'icon35.gif') }}></a>
+			<a href="tnt/search?category=36"><img src= {{ url_for('static', filename = 'icon36.gif') }}></a>
+			<a href="tnt/search?category=37"><img src= {{ url_for('static', filename = 'icon37.gif') }}></a>
+			<a href="tnt/search?category=38"><img src= {{ url_for('static', filename = 'icon38.gif') }}></a>
+        </center>
+	{% endif %}
+	</div>
+
+	{% if contents %}
+		<br>
+		<center><small>Totale torrent: <b>{{contents}}</b></small></center>
+	{% endif %}
+{% endblock %}
